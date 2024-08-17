@@ -12,7 +12,7 @@ module Jobber
 
     def initialize
       self.class.headers(
-        "Authorization" => "Bearer #{ENV['JOBBER_API_TOKEN']}",
+        "Authorization" => "Bearer #{ENV['JOBBER_ACCESS_TOKEN']}",
         "Content-Type" => "application/json",
         "X-JOBBER-GRAPHQL-VERSION" => "#{ENV['JOBBER_GRAPHQL_API_VERSION']}"
       )
