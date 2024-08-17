@@ -11,9 +11,16 @@ require_relative '../lib/jobber/oauth'
 # require "byebug";byebug
 # puts customers.first
 
+
+#############
+# Initialize OAuth client
 oauth_client = Jobber::OAuth.new
 
-if ENV['JOBBER_ACCESS_TOKEN'].nil?
+# Step 1: Read the access token from token.json
+token_data = oauth_client.read_token
+access_token = token_data['access_token']
+
+if access_token.nil?
   puts "Please go to the following URL to authorize the application:"
   puts oauth_client.authorization_url
   puts "Once you have authorized the application, enter the code from the URL below:"
@@ -23,14 +30,27 @@ if ENV['JOBBER_ACCESS_TOKEN'].nil?
   token_data = oauth_client.exchange_code_for_token(authorization_code)
 
   if token_data['access_token']
-    # Store the access token in an environment variable (or securely in a database)
-    ENV['JOBBER_ACCESS_TOKEN'] = token_data['access_token']
+    # Store the access token in token.json
+    oauth_client.write_token(token_data)
+    access_token = token_data['access_token']
     puts "Access token retrieved and stored successfully."
   else
     puts "Failed to retrieve access token: #{token_data}"
     exit
   end
 end
+
+# Update Client class to use the access token from token.json
+Jobber::Base.class_eval do
+  define_method(:initialize) do
+    self.class.headers(
+      "Authorization" => "Bearer #{access_token}",
+      "Content-Type" => "application/json",
+      "X-JOBBER-GRAPHQL-VERSION" => "#{ENV['JOBBER_GRAPHQL_API_VERSION']}"
+    )
+  end
+end
+#############
 
 # Fetch and print customers from Jobber
 jobber_client = Jobber::Client.new
