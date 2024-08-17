@@ -15,7 +15,6 @@ module Jobber
     CLIENT_ID = ENV['JOBBER_CLIENT_ID']
     CLIENT_SECRET = ENV['JOBBER_CLIENT_SECRET']
     REDIRECT_URI = ENV['JOBBER_REDIRECT_URI']
-    TOKEN_FILE = 'token.json'
 
     attr_reader :state
 
@@ -51,17 +50,6 @@ module Jobber
         }
       )
       JSON.parse(response.body)
-    end
-
-    def read_token
-      return {} unless File.exist?(TOKEN_FILE)
-      JSON.parse(File.read(TOKEN_FILE))
-    end
-
-    def write_token(token_data)
-      File.open(TOKEN_FILE, 'w') do |file|
-        file.write(token_data.to_json)
-      end
     end
   end
 end
