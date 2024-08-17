@@ -1,5 +1,5 @@
+require_relative '../lib/jobber/client'
 require_relative '../lib/airtable/customer'
-require_relative '../lib/jobber/customer'
 
 # Fetch the first customer record
 # customers = AirtableCustomer.all
@@ -12,43 +12,13 @@ require_relative '../lib/jobber/customer'
 
 
 
-require 'httparty'
-require 'dotenv'
-require 'json'
+# Fetch and print customers from Jobber
+jobber_client = Jobber::Client.new
+jobber_data = jobber_client.fetch_customers
 
-# Load environment variables from .env file
-Dotenv.load
+puts "Jobber Customers:"
+# jobber_data["data"]["clients"]["nodes"].each do |customer|
+#   puts "ID: #{customer['id']}, Name: #{customer['firstName']} #{customer['lastName']}, City: #{customer['billingAddress']['city']}"
+# end
+puts jobber_data
 
-# Define the GraphQL query
-query = {
-  query: <<-GRAPHQL
-    query SampleQuery {
-      clients {
-        nodes {
-          id
-          firstName
-          lastName
-          billingAddress {
-            city
-          }
-        }
-        totalCount
-      }
-    }
-  GRAPHQL
-}.to_json
-
-# Make the POST request to the Jobber API
-response = HTTParty.post(
-  "https://api.getjobber.com/api/graphql",
-  body: query,
-  headers: {
-    "Authorization" => "Bearer #{ENV['JOBBER_API_TOKEN']}",
-    "Content-Type" => "application/json",
-    "X-JOBBER-GRAPHQL-VERSION" => "#{ENV['JOBBER_GRAPHQL_API_VERSION']}"
-  }
-)
-
-# Parse and print the response
-result = JSON.parse(response.body)
-puts "Response: #{result.inspect}"
