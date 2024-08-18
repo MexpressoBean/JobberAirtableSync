@@ -4,5 +4,7 @@ gem 'airrecord'
 gem 'dotenv'
 gem 'httparty'
 
-gem 'byebug'
-
+group :development do
+  gem 'rubocop', require: false
+  gem 'byebug'
+end

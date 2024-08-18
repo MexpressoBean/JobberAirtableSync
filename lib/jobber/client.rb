@@ -27,3 +27,5 @@ module Jobber
     end
   end
 end
+
+# Next step, figure out how to organize my operations better here to pull fromjobber and airtable
