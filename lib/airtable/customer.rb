@@ -1,6 +1,6 @@
 require_relative 'base'
 
-class AirtableCustomer < Airrecord::Table
+class AirtableCustomerTable < Airrecord::Table
   self.base_key = ENV['AIRTABLE_CUSTOMER_BASE_ID']
   self.table_name = "Customers"
 

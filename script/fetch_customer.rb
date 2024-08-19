@@ -3,7 +3,7 @@ require_relative '../lib/jobber/auth_manager'
 require_relative '../lib/airtable/customer'
 
 # Fetch the first customer record
-# customers = AirtableCustomer.all
+# customers = AirtableCustomerTable.all
 
 # customers.each do |record|
 #     puts "#{record.id}: #{record["Customer Name"]}"
