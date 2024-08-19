@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative '../lib/jobber/client'
 require_relative '../lib/jobber/auth_manager'
 require_relative '../lib/airtable/customer'

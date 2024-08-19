@@ -1,4 +1,4 @@
-# lib/jobber/base.rb
+# frozen_string_literal: true
 
 require 'httparty'
 require 'dotenv'
@@ -14,7 +14,7 @@ module Jobber
       headers(
         'Authorization' => "Bearer #{access_token}",
         'Content-Type' => 'application/json',
-        'X-JOBBER-GRAPHQL-VERSION' => "#{ENV['JOBBER_GRAPHQL_API_VERSION']}"
+        'X-JOBBER-GRAPHQL-VERSION' => (ENV['JOBBER_GRAPHQL_API_VERSION']).to_s
       )
     end
 

@@ -1,4 +1,4 @@
-# lib/jobber/oauth.rb
+# frozen_string_literal: true
 
 require 'httparty'
 require 'dotenv'

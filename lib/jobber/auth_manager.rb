@@ -1,4 +1,4 @@
-# lib/jobber/auth_manager.rb
+# frozen_string_literal: true
 
 require_relative 'oauth'
 require_relative 'client'
