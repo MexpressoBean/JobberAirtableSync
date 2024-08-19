@@ -12,9 +12,9 @@ module Jobber
 
     def self.set_headers(access_token)
       headers(
-        "Authorization" => "Bearer #{access_token}",
-        "Content-Type" => "application/json",
-        "X-JOBBER-GRAPHQL-VERSION" => "#{ENV['JOBBER_GRAPHQL_API_VERSION']}"
+        'Authorization' => "Bearer #{access_token}",
+        'Content-Type' => 'application/json',
+        'X-JOBBER-GRAPHQL-VERSION' => "#{ENV['JOBBER_GRAPHQL_API_VERSION']}"
       )
     end
 
@@ -23,7 +23,7 @@ module Jobber
     end
 
     def post_query(query)
-      self.class.post("", body: query.to_json)
+      self.class.post('', body: query.to_json)
     end
   end
 end

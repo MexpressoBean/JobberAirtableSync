@@ -5,6 +5,6 @@ gem 'dotenv'
 gem 'httparty'
 
 group :development do
-  gem 'rubocop', require: false
   gem 'byebug'
+  gem 'rubocop', require: false
 end
