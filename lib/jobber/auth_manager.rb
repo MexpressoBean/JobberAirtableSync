@@ -5,6 +5,10 @@ require_relative 'client'
 require 'json'
 
 module Jobber
+  # Jobber::AuthManager is responsible for managing the authentication flow with the Jobber API.
+  # It handles obtaining, storing, and refreshing the access token needed for API requests.
+  # The access token is saved to a JSON file (`token.json`) for persistence across sessions.
+  # This class ensures that API requests are authorized by handling the token lifecycle.
   class AuthManager
     TOKEN_FILE = 'token.json'
 
