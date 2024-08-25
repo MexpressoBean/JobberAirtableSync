@@ -13,9 +13,7 @@ require_relative '../lib/airtable/customer'
 # require "byebug";byebug
 # puts customers.first
 
-
 AirtableCustomerTable.ensure_fields_exist
-
 
 # Initialize AuthManager and ensure we have an access token
 # auth_manager = Jobber::AuthManager.new
