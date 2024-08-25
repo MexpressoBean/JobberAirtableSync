@@ -51,7 +51,7 @@ module Jobber
       response = client.fetch_customers
 
       # Check if the response contains an error message related to the token
-      if response.is_a?(Hash) && response['message'] == 'Token not recognized'
+      if response.is_a?(Hash) && (response['message'] == 'Token not recognized' || response['message'] == 'Access token expired')
         puts 'Invalid access token detected.'
         false
       else
