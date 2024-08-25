@@ -9,3 +9,6 @@ Metrics/AbcSize:
 
 Metrics/MethodLength:
   Max: 25
+
+Layout/LineLength:
+  Max: 130
