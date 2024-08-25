@@ -10,8 +10,8 @@ Dotenv.load
 
 module Jobber
   # Jobber::OAuth is responsible for handling the OAuth authentication process with the Jobber API.
-  # This class manages the flow of obtaining and refreshing OAuth tokens, ensuring that API requests 
-  # are properly authenticated. It handles the authorization code exchange, token storage, 
+  # This class manages the flow of obtaining and refreshing OAuth tokens, ensuring that API requests
+  # are properly authenticated. It handles the authorization code exchange, token storage,
   # and token refresh logic as required by the Jobber OAuth protocol.
   # Use this class to securely authenticate and maintain authorized access to the Jobber API.
   class OAuth

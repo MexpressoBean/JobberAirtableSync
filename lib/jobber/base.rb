@@ -8,7 +8,7 @@ Dotenv.load
 module Jobber
   # Jobber::Base serves as the base class for interacting with the Jobber API.
   # It provides the foundational methods for making GraphQL requests to the Jobber API endpoint.
-  # This class sets up the necessary headers, including authorization and content type, 
+  # This class sets up the necessary headers, including authorization and content type,
   # and offers a method (`post_query`) to send GraphQL queries.
   # Other classes within the Jobber module can inherit from this class to perform specific API actions.
   # This class uses the HTTParty gem for handling HTTP requests.
