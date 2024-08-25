@@ -1,0 +1,28 @@
+{
+    "Customers": {
+      "fields": [
+        "Customer Name",
+        "Jobber Customer ID",
+        "Created On",
+        "First Name",
+        "Last Name",
+        "Main Phone",
+        "Email",
+        "Tags",
+        "Referred By",
+        "Service Street 1",
+        "Service Street 2",
+        "Service City",
+        "Service State",
+        "Service Zip Code",
+        "Is Company?"
+      ]
+    },
+    "Jobs": {
+      "fields": [
+        "FieldA",
+        "FieldB",
+        "FieldC"
+      ]
+    }
+  }

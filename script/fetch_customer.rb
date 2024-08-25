@@ -14,20 +14,22 @@ require_relative '../lib/airtable/customer'
 # puts customers.first
 
 
+AirtableCustomerTable.ensure_fields_exist
+
+
 # Initialize AuthManager and ensure we have an access token
-auth_manager = Jobber::AuthManager.new
-access_token = auth_manager.ensure_access_token
+# auth_manager = Jobber::AuthManager.new
+# access_token = auth_manager.ensure_access_token
 
-# Fetch and print customers from Jobber
-jobber_client = Jobber::Client.new(access_token)
-jobber_data = jobber_client.fetch_customers
+# # Fetch and print customers from Jobber
+# jobber_client = Jobber::Client.new(access_token)
+# jobber_data = jobber_client.fetch_customers
 
-puts 'Jobber Customers:'
-jobber_data['data']['clients']['nodes'].each do |customer|
-  puts "ID: #{customer['id']}, Name: #{customer['firstName']} #{customer['lastName']}"
-end
-puts "TOTAL CUSTOMERS: #{jobber_data['data']['clients']['totalCount']}"
-# puts jobber_data
+# puts 'Jobber Customers:'
+# jobber_data['data']['clients']['nodes'].each do |customer|
+#   puts "ID: #{customer['id']}, Name: #{customer['firstName']} #{customer['lastName']}"
+# end
+# puts "TOTAL CUSTOMERS: #{jobber_data['data']['clients']['totalCount']}"
 
 #######################
 # Both airtable and jobber api integrations are
