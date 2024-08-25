@@ -16,7 +16,7 @@ module Jobber
     include HTTParty
     base_uri 'https://api.getjobber.com/api/graphql'
 
-    def self.set_headers(access_token)
+    def self.configure_headers(access_token)
       headers(
         'Authorization' => "Bearer #{access_token}",
         'Content-Type' => 'application/json',
@@ -25,7 +25,7 @@ module Jobber
     end
 
     def initialize(access_token = nil)
-      self.class.set_headers(access_token) if access_token
+      self.class.configure_headers(access_token) if access_token
     end
 
     def post_query(query)

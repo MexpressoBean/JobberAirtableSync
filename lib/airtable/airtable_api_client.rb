@@ -1,8 +1,12 @@
+# frozen_string_literal: true
+
 require 'httparty'
 
 # Load environment variables from .env file
 Dotenv.load
 
+# This class provides methods for interacting with the Airtable API.
+# It supports fetching table schemas and making generic API requests.
 class AirtableAPI
   include HTTParty
   base_uri 'https://api.airtable.com/v0'
